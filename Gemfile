@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'semantic-ui-sass', '~> 0.19.3.0'
 
 group :production do
+  gem 'rails_12factor'
   gem 'pg'
 end
 
