@@ -8,7 +8,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
 
-group :heroku do
+group :production do
   gem 'pg'
 end
 

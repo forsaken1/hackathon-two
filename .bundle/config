@@ -1,2 +1,2 @@
 ---
-BUNDLE_WITHOUT: heroku
+BUNDLE_WITHOUT: production
