@@ -1,0 +1,11 @@
+user1:
+  id: 1
+  email: 'alexey2141@mail.ru'
+  encrypted_password: '$2a$10$KXBd4mUgl0dELq7JVsWHie7Op5xECm8zag8EdE.K/G0lrcWxrUH.u'
+  city_id: 1
+
+user2:
+  id: 2
+  email: 'alexey2143@mail.ru'
+  encrypted_password: '$2a$10$KXBd4mUgl0dELq7JVsWHie7Op5xECm8zag8EdE.K/G0lrcWxrUH.u'
+  city_id: 1

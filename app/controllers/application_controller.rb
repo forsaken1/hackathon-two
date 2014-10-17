@@ -9,7 +9,6 @@ private
   def not_found_exception
     respond_to do |format|
       format.json { respond_404 }
-      format.html {  }
     end
   end
 

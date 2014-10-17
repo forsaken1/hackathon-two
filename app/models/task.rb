@@ -3,4 +3,7 @@ class Task < ActiveRecord::Base
   has_many :responded, through: :user_task
 
   scope :by_city_if, -> (user_signed_in) { user_signed_in ? where(user: current_user) : self }
+  scope :by, -> (user) { where(user: user) }
+  scope :not, -> (user) { where.not(user: user) }
+  scope :not_completed, -> { where(completed: 0) }
 end

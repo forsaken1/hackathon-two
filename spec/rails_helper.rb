@@ -82,8 +82,8 @@ def result(result = 'error')
   expect($data['result']).to eq result
 end
 
-def auth(user = { email: 'alexey2141@mail.ru', password: '12345' }, checker = true)
-  _post "/user/sign_in", { 'user' => user }
+def auth(user = { email: 'alexey2141@mail.ru', password: '12345678', remember_me: 0 }, checker = true)
+  _post "/users/sign_in", { 'user' => user }
   
   result_ok if checker
 end

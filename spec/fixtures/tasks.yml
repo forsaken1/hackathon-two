@@ -6,6 +6,7 @@ task1:
   lng: '131.886886'
   lat: '43.125522'
   user_id: 1
+  completed: 0
 
 task2:
   id: 2
@@ -15,3 +16,14 @@ task2:
   lng: '131.881181'
   lat: '43.213969'
   user_id: 1
+  completed: 0
+
+task3:
+  id: 3
+  about: 'Найти очки'
+  date: '2014-10-17 12:00:00'
+  address: 'Алеутская, 15'
+  lng: '131.881181'
+  lat: '43.213969'
+  user_id: 1
+  completed: 1
