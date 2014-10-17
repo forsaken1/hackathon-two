@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017134211) do
+ActiveRecord::Schema.define(version: 20141017162446) do
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.string   "lat"
+    t.string   "lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["name"], name: "index_cities_on_name", unique: true, using: :btree
+
+  create_table "tasks", force: true do |t|
+    t.string   "about"
+    t.string   "address"
+    t.datetime "date"
+    t.string   "lat"
+    t.string   "lng"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["about"], name: "index_tasks_on_about", unique: true, using: :btree
+
+  create_table "user_task", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_task", ["user_id", "task_id"], name: "index_user_task_on_user_id_and_task_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +58,7 @@ ActiveRecord::Schema.define(version: 20141017134211) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "city_id",                default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
