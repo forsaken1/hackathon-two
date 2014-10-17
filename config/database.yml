@@ -15,9 +15,10 @@ test:
   database: hackathon2_test
 
 production:
-  adapter: pg
+  adapter: postgresql
   host: ec2-54-225-136-187.compute-1.amazonaws.com
   username: cfdtdbzqnlxdvn
   database: d8qqa06kds8ssq
   port: 5432
+  encoding: unicode
   password: 6K6i2TU5rXHyBovFlNKDowkxKm
