@@ -27,7 +27,7 @@
 
 ## Требования
 
-### Web-frontend
+### Web-frontend (http://hackathon2.herokuapp.com/)
 
 * Регистрация и авторизация
 * Возможность просмотра списков с просьбами
