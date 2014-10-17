@@ -3,5 +3,18 @@
   %head
     %title= yield :title
     = csrf_meta_tags
+    = stylesheet_link_tag 'application'
   %body
+    .ui.inverted.menu
+      %a.item{ href: '/' }
+        %i.home.icon
+        = t('menu.main')
+      %a.item{ href: '/tasks' }
+        %i.mail.icon
+        = t('menu.tasks')
+      %a.item{ href: '/login' }
+        %i.user.icon
+        = t('menu.login')
     = yield
+  %footer
+    = javascript_include_tag 'application'

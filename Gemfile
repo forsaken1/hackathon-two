@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'semantic-ui-sass', '~> 0.19.3.0'
 
 group :production do
   gem 'pg'
