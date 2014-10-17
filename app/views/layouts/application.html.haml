@@ -3,18 +3,27 @@
   %head
     %title= yield :title
     = csrf_meta_tags
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag :application
   %body
     .ui.inverted.menu
-      %a.item{ href: '/' }
+      %a.item{ href: root_path }
         %i.home.icon
         = t('menu.main')
       %a.item{ href: '/tasks' }
         %i.mail.icon
         = t('menu.tasks')
-      %a.item{ href: '/users/sign_in' }
-        %i.user.icon
-        = t('menu.login')
+      - unless user_signed_in?
+        %a.item{ href: new_user_session_path }
+          %i.user.icon
+          = t('menu.sign_in')
+      - else
+        %a.item
+          %form{ action: destroy_user_session_path, method: :post }
+            %input{ name: :_method, value: :delete, type: :hidden }
+            %input{ value: form_authenticity_token, name: :authenticity_token, type: :hidden}
+            %button{ type: :submit, style: 'border:0;background-color: #333333;color:#ffffff;' }
+              %i.user.icon
+              = t('menu.sign_out')
     = yield
   %footer
-    = javascript_include_tag 'application'
+    = javascript_include_tag :application
