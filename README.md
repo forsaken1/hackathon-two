@@ -4,7 +4,7 @@
 ## Исполнители
 
 * Александр Готовец - web-frontend
-* Андрей Недобыльский - mobile-frontend
+* Андрей Недобыльский - mobile-frontend (https://github.com/jhonyxakep/hackathon_two)
 * Алексей Крылов - backend
 
 ## Основная идея
