@@ -11,6 +11,9 @@ describe "API: tasks" do
       result_ok
       tasks_titles = $data['tasks'].map { |m| m["about"] }
       expect(tasks_titles).to match_array(["Достать котенка с дерева", "Передвинуть диван"])
+      expect($data['tasks'][0]['about']).to eq "Достать котенка с дерева"
+      expect($data['tasks'][0]['user']['email']).to eq 'alexey2141@mail.ru'
+      expect($data['tasks'][0]['user']['city']['name']).to eq 'Владивосток'
     end
   end
 
