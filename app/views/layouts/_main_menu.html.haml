@@ -6,13 +6,13 @@
     %i.mail.icon
     = t('menu.tasks')
   - unless user_signed_in?
-    %a.item{ href: new_user_session_path }
+    %a.right.item{ href: new_user_session_path }
       %i.user.icon
       = t('menu.sign_in')
   - else
-    %a.item{ href: user_path }
-      %i.setting.icon
-      = t('menu.settings')
-    %a.item.sign_out{ url: destroy_user_session_path }
+    %a.item.right.sign_out{ url: destroy_user_session_path }
       %i.user.icon
       = t('menu.sign_out')
+    %a.right.item{ href: user_path }
+      %i.setting.icon
+      = t('menu.settings')
