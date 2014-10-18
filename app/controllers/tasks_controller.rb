@@ -8,7 +8,7 @@ private
 
 public
   def index
-    @tasks = Task.by_city_if(user_signed_in?).not_completed.all
+    @tasks = Task.by_city_if(user_signed_in?, current_user).not_completed.all
     rendering tasks: @tasks
   end
 

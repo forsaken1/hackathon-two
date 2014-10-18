@@ -17,7 +17,7 @@ protected
     render json: o
   end
 
-  def respond_ok o
+  def respond_ok o = {}
     respond( { result: :ok }.merge o )
   end
 
