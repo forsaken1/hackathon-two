@@ -1,0 +1,15 @@
+- content_for :title do
+  t('menu.tasks')
+
+.ui.grid
+  .column
+  .ui.sixteen.wide.column.items
+    - @tasks.each do |task|
+      %a.item{ href: task_path(task) }
+        .image
+          %img{ src: task.user.avatar_url }
+            /%a.star.ui.corner.label
+            /  %i.star.icon
+        .content
+          .name= task.user.title
+          %p.description= task.about

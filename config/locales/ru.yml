@@ -8,7 +8,7 @@ ru:
 
   login:
     title: 'Вход'
-    email: 'Элестронный адрес'
+    email: 'Электронный адрес'
     password: 'Пароль'
     send: 'Войти'
     remember_me: 'Запомнить меня'
@@ -19,7 +19,7 @@ ru:
 
   register:
     title: 'Регистрация'
-    email: 'Элестронный адрес'
+    email: 'Электронный адрес'
     password: 'Пароль'
     confirm_password: 'Подтверждение пароля'
     submit: 'Отправить'
