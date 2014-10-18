@@ -1,8 +1,8 @@
-.ui.inverted.menu
+.ui.inverted.menu.fixed
   %a.item{ href: root_path }
     %i.home.icon
     = t('menu.main')
-  %a.item{ href: '/tasks' }
+  %a.item{ href: tasks_path }
     %i.mail.icon
     = t('menu.tasks')
   - unless user_signed_in?
@@ -10,8 +10,9 @@
       %i.user.icon
       = t('menu.sign_in')
   - else
-    %a.item{ href: '/user' }
+    %a.item{ href: user_path }
       %i.setting.icon
       = t('menu.settings')
-    %a.item
-      = render partial:'layouts/login_form'
+    %a.item.sign_out{ url: destroy_user_session_path }
+      %i.user.icon
+      = t('menu.sign_out')
