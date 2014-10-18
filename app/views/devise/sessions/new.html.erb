@@ -1,14 +1,14 @@
 <div class="ui three column grid">
   <div class="column"></div>
   <div class="column">
-    <h2>Log in</h2>
+    <h2><%= t('login.title')%></h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     	<div class="ui form segment">
     		<div class="field">
-    	  	<%= f.label :email %>
+          <%= f.label :email,  t('login.email')%>
     			<div class="ui left labeled icon input">
-    			  <%= f.email_field :email, autofocus: true, placeholder: 'Email' %>
+    			  <%= f.email_field :email, autofocus: true, placeholder: t('login.email') %>
     		    <i class="user icon"></i>
     		    <div class="ui corner label">
     		      <i class="icon asterisk"></i>
@@ -17,9 +17,9 @@
     		</div>
 
     		<div class="field">
-    	  	<%= f.label :password %>
+          <%= f.label :password,  t('login.password')%>
     			<div class="ui left labeled icon input">
-    			  <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+    			  <%= f.password_field :password, autocomplete: "off", placeholder: t('login.password') %>
     		    <i class="lock icon"></i>
     		    <div class="ui corner label">
     		      <i class="icon asterisk"></i>
@@ -31,12 +31,12 @@
           <div class="inline field">
             <div class="ui checkbox">
               <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
+              <%= f.label :remember_me,  t('login.remember_me')%>
             </div>
           </div>
     	  <% end -%>
 
-    	  <%= f.submit "Log in", class: 'ui blue submit button' %>
+    	  <%= f.submit t('login.send'), class: 'ui blue submit button' %>
 
       </div>
     <% end %>

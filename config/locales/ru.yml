@@ -4,6 +4,14 @@ ru:
     tasks: 'Просьбы'
     sign_in: 'Войти'
     sign_out: 'Выйти'
+    settings: 'Настройки'
+
+  login:
+    title: 'Вход'
+    email: 'Элестронный адрес'
+    password: 'Пароль'
+    send: 'Войти'
+    remember_me: 'Запомнить меня'
 
   register:
     title: 'Регистрация'
@@ -11,6 +19,11 @@ ru:
     password: 'Пароль'
     confirm_password: 'Подтверждение пароля'
     submit: 'Отправить'
+
+  forgot_password:
+    title: 'Забыли пароль?'
+    email: 'Элестронный адрес'
+    send_instruction: 'Отправить инструкцию'
 
   links:
     sign_in: 'Войти'
