@@ -34,10 +34,13 @@ $(document).ready(function() {
             balloonContentHeader: data.task.about,
             balloonContentBody: 'Адрес: ' + data.task.address + '<br />Дата: ' + getTaskData(data.task)
           });
-          myCollection.add(placemark);
+          myCollection.add( placemark );
         }
-        myMap.geoObjects.add(myCollection);
+        myMap.geoObjects.add( myCollection );
         myMap.setBounds( myCollection.getBounds() );
+        if ('task' in data) {
+          myMap.setZoom(14);
+        }
       }
     });
   };
