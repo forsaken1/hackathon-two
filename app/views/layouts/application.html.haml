@@ -18,12 +18,7 @@
           = t('menu.sign_in')
       - else
         %a.item
-          %form{ action: destroy_user_session_path, method: :post }
-            %input{ name: :_method, value: :delete, type: :hidden }
-            %input{ value: form_authenticity_token, name: :authenticity_token, type: :hidden}
-            %button{ type: :submit, style: 'border:0;background-color: #333333;color:#ffffff;' }
-              %i.user.icon
-              = t('menu.sign_out')
+          = render partial:'layouts/login_form'
     = yield
   %footer
     = javascript_include_tag :application
