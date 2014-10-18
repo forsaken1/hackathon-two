@@ -14,6 +14,7 @@ describe "API: tasks" do
       expect($data['tasks'][0]['about']).to eq "Достать котенка с дерева"
       expect($data['tasks'][0]['user']['email']).to eq 'alexey2141@mail.ru'
       expect($data['tasks'][0]['user']['city']['name']).to eq 'Владивосток'
+      expect($data['tasks'][0]['user']['avatar_url']).to eq '/images/medium/missing.png'
     end
   end
 
