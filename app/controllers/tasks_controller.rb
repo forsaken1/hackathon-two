@@ -9,12 +9,11 @@ private
 public
   def index
     @tasks = Task.by_city_if(user_signed_in?, current_user).not_completed.includes(user: :city).all
-    #return render text: @tasks[1].user.city.name
     rendering tasks: @tasks.as_json(include: { user: { include: :city, methods: [:avatar_url] } })
   end
 
   def show
-    @task = Task.find params[:id]
+    @task = Task.includes(user: :city).find params[:id]
     rendering task: @task.as_json(include: { user: { include: :city, methods: [:avatar_url] } })
   end
 

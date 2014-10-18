@@ -32,6 +32,9 @@ ru:
     select_city: 'Выберите город'
     submit: 'Сохранить'
 
+  tasks:
+    submit: 'Помочь'
+
   forgot_password:
     title: 'Забыли пароль?'
     email: 'Элестронный адрес'
