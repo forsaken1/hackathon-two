@@ -5,6 +5,18 @@ ru:
     sign_in: 'Войти'
     sign_out: 'Выйти'
 
+  register:
+    title: 'Регистрация'
+    email: 'Элестронный адрес'
+    password: 'Пароль'
+    confirm_password: 'Подтверждение пароля'
+    submit: 'Отправить'
+
+  links:
+    sign_in: 'Войти'
+    sign_up: 'Регистрация'
+    rotgot_password: 'Забыли пароль?'
+
   date:
     abbr_day_names:
     - Вс
