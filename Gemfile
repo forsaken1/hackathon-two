@@ -9,6 +9,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'semantic-ui-sass', '~> 0.19.3.0'
+gem 'date_validator'
 
 group :production do
   gem 'rails_12factor'

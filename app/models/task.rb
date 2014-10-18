@@ -5,4 +5,10 @@ class Task < ActiveRecord::Base
   scope :by, -> (user) { where(user: user) }
   scope :not, -> (user) { where.not(user: user) }
   scope :not_completed, -> { where(completed: 0) }
+
+  validates :about, length: { minimum: 1, maximum: 255 }, presence: true
+  validates :address, length: { minimum: 1, maximum: 255 }
+  validates :lat, length: { maximum: 15 }
+  validates :lng, length: { maximum: 15 }
+  validates :date, date: { after: Proc.new { Time.now }, message: 'не может быть раньше текущего момента' }
 end

@@ -5,6 +5,10 @@ ru:
     sign_in: 'Войти'
     sign_out: 'Выйти'
 
+  validation:
+    date:
+      after: 'должно быть позже текущего момента'
+
   date:
     abbr_day_names:
     - Вс
