@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get  'tasks/:id',         to: 'tasks#show'
   get  'tasks/:id/apply',   to: 'tasks#apply'
   post 'tasks/:id/destroy', to: 'tasks#destroy'
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 end
