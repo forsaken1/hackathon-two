@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
 private
   def task_params
-    params.require(:task).permit(:about, :date, :address)
+    params.require(:task).permit(:about, :date, :address, :lat, :lng)
   end
 
 public

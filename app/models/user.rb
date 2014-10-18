@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :user_tasks
   has_many :responded, through: :user_tasks, source: :task
+
+  validates :name, length: { maximum: 255 }
+  validates :surname, length: { maximum: 255 }
+  validates :city_id, numericality: { only_integer: true }
 end
