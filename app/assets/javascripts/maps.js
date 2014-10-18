@@ -25,7 +25,7 @@ $(document).ready(function() {
             var placemark = new ymaps.Placemark([element.lat, element.lng], {
               balloonContentHeader: element.about,
               balloonContentBody: 'Адрес: ' + element.address + '<br />Дата: ' + getTaskData(element) +
-                '<br /><a href="/tasks/1" target="_blank">Подробнее</a>'
+                '<br /><a href="/tasks/' + element.id + '">Подробнее</a>'
             });
             myCollection.add(placemark);
           });
@@ -34,10 +34,13 @@ $(document).ready(function() {
             balloonContentHeader: data.task.about,
             balloonContentBody: 'Адрес: ' + data.task.address + '<br />Дата: ' + getTaskData(data.task)
           });
-          myCollection.add(placemark);
+          myCollection.add( placemark );
         }
-        myMap.geoObjects.add(myCollection);
+        myMap.geoObjects.add( myCollection );
         myMap.setBounds( myCollection.getBounds() );
+        if ('task' in data) {
+          myMap.setZoom(14);
+        }
       }
     });
   };
