@@ -8,7 +8,7 @@ private
 
 public
   def index
-    @user = User.preload(:city).find current_user.id
+    @user = User.includes(:city).find current_user.id
     rendering user: @user.as_json(include: :city)
   end
 

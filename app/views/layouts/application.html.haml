@@ -5,20 +5,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag :application
   %body
-    .ui.inverted.menu
-      %a.item{ href: root_path }
-        %i.home.icon
-        = t('menu.main')
-      %a.item{ href: '/tasks' }
-        %i.mail.icon
-        = t('menu.tasks')
-      - unless user_signed_in?
-        %a.item{ href: new_user_session_path }
-          %i.user.icon
-          = t('menu.sign_in')
-      - else
-        %a.item
-          = render partial:'layouts/login_form'
+    = render partial:'layouts/main_menu'
     = yield
   %footer
     = javascript_include_tag :application

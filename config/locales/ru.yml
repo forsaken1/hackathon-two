@@ -4,6 +4,14 @@ ru:
     tasks: 'Просьбы'
     sign_in: 'Войти'
     sign_out: 'Выйти'
+    settings: 'Настройки'
+
+  login:
+    title: 'Вход'
+    email: 'Элестронный адрес'
+    password: 'Пароль'
+    send: 'Войти'
+    remember_me: 'Запомнить меня'
 
   validation:
     date:
@@ -16,10 +24,26 @@ ru:
     confirm_password: 'Подтверждение пароля'
     submit: 'Отправить'
 
+  settings:
+    name: 'Имя'
+    surname: 'Фамилия'
+    city: 'Город'
+    avatar: 'Аватарка'
+    select_city: 'Выберите город'
+    submit: 'Сохранить'
+
+  forgot_password:
+    title: 'Забыли пароль?'
+    email: 'Элестронный адрес'
+    send_instruction: 'Отправить инструкцию'
+
   links:
     sign_in: 'Войти'
     sign_up: 'Регистрация'
     rotgot_password: 'Забыли пароль?'
+
+  pages:
+    settings: 'Настройки'
 
   date:
     abbr_day_names:

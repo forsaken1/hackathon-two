@@ -1,0 +1,17 @@
+.ui.inverted.menu
+  %a.item{ href: root_path }
+    %i.home.icon
+    = t('menu.main')
+  %a.item{ href: '/tasks' }
+    %i.mail.icon
+    = t('menu.tasks')
+  - unless user_signed_in?
+    %a.item{ href: new_user_session_path }
+      %i.user.icon
+      = t('menu.sign_in')
+  - else
+    %a.item{ href: '/user' }
+      %i.setting.icon
+      = t('menu.settings')
+    %a.item
+      = render partial:'layouts/login_form'
