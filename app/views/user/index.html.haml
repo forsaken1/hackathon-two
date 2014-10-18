@@ -1,7 +1,8 @@
 - content_for :title do
   = t('pages.settings')
-.ui.two.column.grid
+.ui.eight.column.grid
   .column
+  .twelve.wide.column
     %form{:method => 'post', :multipart => true}
       %h2= t('pages.settings')
       .ui.error.form.segment
