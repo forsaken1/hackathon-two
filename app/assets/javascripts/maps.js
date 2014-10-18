@@ -16,7 +16,8 @@ $(document).ready(function() {
         coordinatesList[ index ] = [element.lat, element.lng];
         var placemark = new ymaps.Placemark([element.lat, element.lng], {
           balloonContentHeader: element.about,
-          balloonContentBody: 'Адрес: ' + element.address + '<br />Дата: ' + dateStr
+          balloonContentBody: 'Адрес: ' + element.address + '<br />Дата: ' + dateStr +
+            '<br /><a href="/tasks/1" target="_blank">Подробнее</a>'
         });
         myCollection.add(placemark);
       });
