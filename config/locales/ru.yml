@@ -46,7 +46,11 @@ ru:
     rotgot_password: 'Забыли пароль?'
 
   pages:
+    main: 'Главная'
+    login: 'Вход'
+    register: 'Регистрация'
     settings: 'Настройки'
+    tasks: 'Просьбы'
 
   date:
     abbr_day_names:
