@@ -6,6 +6,13 @@
       %h2= t('pages.settings')
       .ui.form.segment
         .field
+          = label_tag :name, t('settings.avatar')
+          .ui.action.input
+            = text_field_tag :avatar, nil, id: '_avatar'
+            %label.ui.icon.button.btn-file
+              %i.attachment.basic.icon
+              = file_field_tag :avatar, accept: 'image/png,image/gif,image/jpeg', style: 'display: none'
+        .field
           = label_tag :name, t('settings.name')
           .ui.left.labeled.icon.input
             = text_field_tag :name, @user.name, placeholder: t('settings.name'), name: 'user[name]'
@@ -28,4 +35,5 @@
             .menu
               - City.all.each do |city|
                 .item{"data-value" => city.id}= city.name
+        = button_tag t('settings.submit'), class: 'ui blue submit button'
   .column

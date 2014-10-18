@@ -30,6 +30,7 @@ ru:
     city: 'Город'
     avatar: 'Аватарка'
     select_city: 'Выберите город'
+    submit: 'Сохранить'
 
   forgot_password:
     title: 'Забыли пароль?'
