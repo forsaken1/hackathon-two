@@ -1,5 +1,9 @@
 - content_for :title do
   Disabled people
+- content_for :breadcrumb do
+  .active.section= t('pages.main')
+  %i.right.arrow.icon.divider
+  
 .ui.eight.column.grid
   .column
   .twelve.wide.column.map_wrapper{id: 'map_wrapper'}
