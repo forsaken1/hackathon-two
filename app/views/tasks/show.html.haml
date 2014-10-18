@@ -1,2 +1,23 @@
 - content_for :title do
   t('menu.tasks')
+.ui.eight.column.grid
+  .column
+  .twelve.wide.column
+    .ui.three.column.grid
+      .column
+        %img.task_avatar{src: @task.user.avatar_url}
+      .ten.wide.column
+        .ui.segment
+          .ui.relaxed.divided.list
+            .item
+              .content
+                = @task.about
+            .item
+              .content
+                = @task.date
+            .item
+              .content
+                = button_tag t('tasks.submit'), class: 'ui blue submit button'
+    .map_wrapper{id: 'single_map_wrapper'}
+  .column
+  = hidden_field_tag :task_id, @task.id
