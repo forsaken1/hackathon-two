@@ -4,6 +4,7 @@
     %title= yield :title
     = csrf_meta_tags
     = stylesheet_link_tag :application
+    %script{:type => "text/javascript", :src => "//api-maps.yandex.ru/2.1/?lang=ru_RU"}
   %body
     = render partial:'layouts/main_menu'
     = yield
