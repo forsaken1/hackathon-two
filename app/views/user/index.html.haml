@@ -1,0 +1,31 @@
+- content_for :title do
+  = t('pages.settings')
+.ui.two.column.grid
+  .column
+    %form{:method => 'post', :multipart => true}
+      %h2= t('pages.settings')
+      .ui.form.segment
+        .field
+          = label_tag :name, t('settings.name')
+          .ui.left.labeled.icon.input
+            = text_field_tag :name, @user.name, placeholder: t('settings.name'), name: 'user[name]'
+            %i.user.icon
+            .ui.corner.label
+              %i.icon.asterisk
+        .field
+          = label_tag :surname, t('settings.surname')
+          .ui.left.labeled.icon.input
+            = text_field_tag :surname, @user.surname, placeholder: t('settings.surname'), name: 'user[surname]'
+            %i.user.icon
+            .ui.corner.label
+              %i.icon.asterisk
+        .field
+          = label_tag :city_id, t('settings.city')
+          .ui.dropdown.selection
+            = hidden_field_tag :city_id, @user.city ? @user.city.id : 0, name: 'user[city_id]'
+            .default.text= @user.city ? @user.city.name : t('settings.select_city')
+            %i.dropdown.icon
+            .menu
+              - City.all.each do |city|
+                .item{"data-value" => city.id}= city.name
+  .column

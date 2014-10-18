@@ -2,7 +2,7 @@ class UserController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = current_user
+    @user = User.includes(:city).find current_user.id
     rendering user: @user
   end
 

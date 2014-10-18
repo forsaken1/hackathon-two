@@ -24,6 +24,13 @@ ru:
     confirm_password: 'Подтверждение пароля'
     submit: 'Отправить'
 
+  settings:
+    name: 'Имя'
+    surname: 'Фамилия'
+    city: 'Город'
+    avatar: 'Аватарка'
+    select_city: 'Выберите город'
+
   forgot_password:
     title: 'Забыли пароль?'
     email: 'Элестронный адрес'
@@ -33,6 +40,9 @@ ru:
     sign_in: 'Войти'
     sign_up: 'Регистрация'
     rotgot_password: 'Забыли пароль?'
+
+  pages:
+    settings: 'Настройки'
 
   date:
     abbr_day_names:
