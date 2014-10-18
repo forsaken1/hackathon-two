@@ -4,7 +4,8 @@
   .column
     %form{:method => 'post', :multipart => true}
       %h2= t('pages.settings')
-      .ui.form.segment
+      .ui.error.form.segment
+        = render partial:'devise/shared/error_messages'
         .field
           = label_tag :name, t('settings.avatar')
           .ui.action.input
