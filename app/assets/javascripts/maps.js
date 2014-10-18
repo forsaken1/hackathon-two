@@ -25,7 +25,7 @@ $(document).ready(function() {
             var placemark = new ymaps.Placemark([element.lat, element.lng], {
               balloonContentHeader: element.about,
               balloonContentBody: 'Адрес: ' + element.address + '<br />Дата: ' + getTaskData(element) +
-                '<br /><a href="/tasks/' + element.id + '" target="_blank">Подробнее</a>'
+                '<br /><a href="/tasks/' + element.id + '">Подробнее</a>'
             });
             myCollection.add(placemark);
           });
