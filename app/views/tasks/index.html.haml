@@ -1,5 +1,9 @@
 - content_for :title do
   = t('menu.tasks')
+- content_for :breadcrumb do
+  %a.section{href: '/'}= t('pages.main')
+  %i.right.arrow.icon.divider
+  .active.section= t('pages.tasks')
 
 .ui.eight.column.grid
   .column

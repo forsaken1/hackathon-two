@@ -7,6 +7,12 @@
     %script{:type => "text/javascript", :src => "//api-maps.yandex.ru/2.1/?lang=ru_RU"}
   %body
     = render partial:'layouts/main_menu'
+    .ui.eight.column.grid
+      .column
+      .twelve.wide.column
+        .ui.breadcrumb
+          = yield :breadcrumb
+      .column
     = yield
   %footer
     = javascript_include_tag :application
