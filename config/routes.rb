@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get  'user/tasks',        to: 'user#tasks'
 
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 end

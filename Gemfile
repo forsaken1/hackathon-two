@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'semantic-ui-sass', '~> 0.19.3.0'
 gem 'date_validator'
 gem "paperclip", "~> 4.2"
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :production do
   gem 'rails_12factor'
