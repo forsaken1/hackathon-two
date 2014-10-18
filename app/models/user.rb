@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :tasks
   belongs_to :city
+  has_many :tasks
+  has_many :user_tasks
+  has_many :responded, through: :user_tasks, source: :task
 end

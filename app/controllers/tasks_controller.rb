@@ -31,7 +31,7 @@ public
       end
     else
       respond_to do |format|
-        format.json { respond_error_validation @task.errors.messages }
+        format.json { respond_validation_error @task.errors.messages }
         format.html { render action: :new }
       end
     end
@@ -51,14 +51,14 @@ public
       end
     else
       respond_to do |format|
-        format.json { respond_error_validation @task.errors.messages }
+        format.json { respond_validation_error @task.errors.messages }
         format.html { render action: :edit }
       end
     end
   end
 
   def destroy
-    Task.by(current_user).find(params[:id]).destroy
+    Task.by(current_user).not_completed.find(params[:id]).destroy
     respond_to do |format|
       format.json { respond_ok }
       format.html { redirect_to tasks_path }
@@ -68,10 +68,25 @@ public
   def apply
     @task = Task.not(current_user).find params[:id]
     if @task
-      @user_task = UserTask.create(user: current_user, task: @task)
+      @user_task = UserTask.where(user: current_user).where(task: @task).first
+      if @user_task
+        respond result: :apply_already_exists
+      else
+        UserTask.create(user: current_user, task: @task)
+        respond_ok
+      end
+    else
+      respond result: :fail_apply_task
+    end
+  end
+
+  def forget
+    @user_task = UserTask.where(user: current_user).where(task: params[:id]).first
+    if @user_task
+      @user_task.destroy
       respond_ok
     else
-      respond result: :fail_apply
+      respond result: :link_not_exists
     end
   end
 end

@@ -25,6 +25,10 @@ protected
     respond result: '404'
   end
 
+  def respond_validation_error messages = []
+    respond result: 'validation_error', messages: messages 
+  end
+
   def rendering o
     respond_to do |format|
       format.json { respond_ok o }

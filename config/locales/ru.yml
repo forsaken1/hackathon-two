@@ -13,6 +13,10 @@ ru:
     send: 'Войти'
     remember_me: 'Запомнить меня'
 
+  validation:
+    date:
+      after: 'должно быть позже текущего момента'
+
   register:
     title: 'Регистрация'
     email: 'Элестронный адрес'
