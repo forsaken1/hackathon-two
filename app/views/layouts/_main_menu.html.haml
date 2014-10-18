@@ -10,6 +10,9 @@
       %i.user.icon
       = t('menu.sign_in')
   - else
+    %a.item{ href: '/tasks/#' }
+      %i.add.icon
+      = t('menu.add')
     %a.item.right.sign_out{ url: destroy_user_session_path }
       %i.user.icon
       = t('menu.sign_out')
