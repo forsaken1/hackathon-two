@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get  'user',              to: 'user#index'
   post 'user',              to: 'user#update'
   get  'user/responds',     to: 'user#responds'
-  get  'user/tasks',        to: 'user#tasks'
+  get  'user/tasks',        to: 'user#tasks', as: :user_tasks
 
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
   devise_for :admin_users, ActiveAdmin::Devise.config
