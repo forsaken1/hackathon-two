@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_exception
+  rescue_from ActiveRecord::RecordNotUnique, with: :record_not_unique
 
   def index
   end
@@ -9,6 +10,12 @@ private
   def not_found_exception
     respond_to do |format|
       format.json { respond_404 }
+    end
+  end
+
+  def record_not_unique
+    respond_to do |format|
+      format.json { respond result: :record_not_unique }
     end
   end
 
