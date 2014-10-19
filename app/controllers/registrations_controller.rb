@@ -27,7 +27,7 @@ class RegistrationsController < Devise::RegistrationsController
         @minimum_password_length = resource_class.password_length.min
       end
       respond_to do |format|
-        format.json { render json: { result: :ok } }
+        format.json { render json: { result: :fail_registration } }
         format.html { respond_with resource }
       end
     end
