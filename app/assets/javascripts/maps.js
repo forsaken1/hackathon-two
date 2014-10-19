@@ -16,7 +16,7 @@ $(document).ready(function() {
       var myCollection = new ymaps.GeoObjectCollection();
       myMap = new ymaps.Map(wrapper_id, {
         center: [43.12, 131.89],
-        zoom: 13,
+        zoom: 12,
         controls: ['zoomControl', 'typeSelector',  'fullscreenControl']
       });
       if (data.result == 'ok') {
@@ -39,7 +39,7 @@ $(document).ready(function() {
           myCollection.add( placemark );
           myMap.geoObjects.add( myCollection );
           myMap.setBounds( myCollection.getBounds() );
-          myMap.setZoom(14);
+          myMap.setZoom(12);
         }
       }
     });
