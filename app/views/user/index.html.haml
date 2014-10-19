@@ -13,17 +13,17 @@
 .ui.eight.column.grid
   .column
   .twelve.wide.column
-    %form{:method => 'post', :multipart => true}
+    %form{:method => 'post', enctype: "multipart/form-data"}
       %h2= t('pages.settings')
       .ui.error.form.segment
         = render partial:'devise/shared/error_messages'
         .field
           = label_tag :name, t('settings.avatar')
           .ui.action.input
-            = text_field_tag :avatar, nil, id: '_avatar'
+            = text_field_tag :avatar, @user.avatar, id: '_avatar'
             %label.ui.icon.button.btn-file
               %i.attachment.basic.icon
-              = file_field_tag :avatar, accept: 'image/png,image/gif,image/jpeg', style: 'display: none'
+              = file_field_tag :avatar, accept: 'image/png,image/gif,image/jpeg', style: 'display: none', name: 'user[avatar]'
         .field
           = label_tag :name, t('settings.name')
           .ui.left.labeled.icon.input
