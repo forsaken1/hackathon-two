@@ -15,3 +15,4 @@
 //= require semantic-ui
 //= require main
 //= require maps
+//= require jquery.datetimepicker

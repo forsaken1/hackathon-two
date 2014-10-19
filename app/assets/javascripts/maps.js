@@ -1,11 +1,39 @@
 $(document).ready(function() {
-  var myMap,
+  var myMap, myPlacemark, coords = [43.1200, 131.8900],
   getTaskData = function(task) {
     var date = new Date( task.date );
     return ('0' + date.getDate()).slice(-2) + '.' + ('0' + date.getMonth()).slice(-2) + '.' + date.getFullYear() + ', ' +
             ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
   },
+  saveCoordinats = function() {
+    $('#new_task_lat').val( coords[0].toFixed(4) );
+    $('#new_task_lng').val( coords[1].toFixed(4) );
+  },
+  initNewTaskMap = function() {
+    myMap = new ymaps.Map('new_task_map', {
+      center: coords,
+      zoom: 12,
+      controls: ['zoomControl', 'typeSelector']
+    });
+    myPlacemark = new ymaps.Placemark( coords, {}, { preset: "twirl#redIcon", draggable: true } );
+    myMap.geoObjects.add(myPlacemark);
+    saveCoordinats();
+
+    myPlacemark.events.add("dragend", function (e) {      
+      coords = this.geometry.getCoordinates();
+      saveCoordinats();
+    }, myPlacemark);
+
+    myMap.events.add('click', function (e) {        
+      coords = e.get('coordPosition');
+      saveCoordinats();
+    });
+  },
   initMainPageMap = function() {
+    if ($('#new_task_map').length) {
+      initNewTaskMap();
+      return;
+    }
     var link = '/tasks',
         wrapper_id = 'map_wrapper';
     if ($('#single_map_wrapper').length) {
@@ -18,7 +46,7 @@ $(document).ready(function() {
     $.get(link, {}, function(data) {
       var myCollection = new ymaps.GeoObjectCollection();
       myMap = new ymaps.Map(wrapper_id, {
-        center: [43.12, 131.89],
+        center: coords,
         zoom: 12,
         controls: ['zoomControl', 'typeSelector',  'fullscreenControl']
       });
@@ -27,7 +55,7 @@ $(document).ready(function() {
           data.tasks.forEach(function(element, index) {
             var placemark = new ymaps.Placemark([element.lat, element.lng], {
               balloonContentHeader: element.about,
-              balloonContentBody: 'Адрес: ' + element.address + '<br />Дата: ' + getTaskData(element) +
+              balloonContentBody: 'Контакты: ' + element.address + '<br />Дата: ' + getTaskData(element) +
                 '<br /><a href="/tasks/' + element.id + '">Подробнее</a>'
             });
             myCollection.add(placemark);

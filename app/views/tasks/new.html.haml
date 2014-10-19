@@ -1,0 +1,56 @@
+- content_for :title do
+  = t('pages.new_task')
+- content_for :breadcrumb do
+  .ui.eight.column.grid
+    .column
+    .twelve.wide.column
+      .ui.breadcrumb
+        %a.section{href: '/'}= t('pages.main')
+        %i.right.arrow.icon.divider
+        %a.section{href: '/tasks'}= t('pages.tasks')
+        %i.right.arrow.icon.divider
+        .active.section= t('pages.new_task')
+    .column
+
+.ui.eight.column.grid
+  .column
+  .twelve.wide.column
+    %form{:method => 'post', :multipart => true}
+      %h2= t('new_task.title')
+      .ui.error.form.segment
+        .field
+          = label_tag :about, t('new_task.about')
+          .ui.left.labeled.icon.input
+            = text_field_tag :about, nil, placeholder: t('new_task.about'), name: 'task[about]'
+            %i.user.icon
+        .three.fields
+          .field
+            .two.fields
+              .field
+                = label_tag :lat, t('new_task.lat')
+                .ui.left.labeled.icon.input
+                  = text_field_tag :lat, nil, placeholder: t('new_task.lat'), name: 'task[lat]', id: 'new_task_lat'
+                  %i.map.icon
+              .field
+                = label_tag :lng, t('new_task.lng')
+                .ui.left.labeled.icon.input
+                  = text_field_tag :lng, nil, placeholder: t('new_task.lng'), name: 'task[lng]', id: 'new_task_lng'
+                  %i.map.icon
+          .field
+            = label_tag :date, t('new_task.date')
+            .ui.left.labeled.icon.input
+              = text_field_tag :date, nil, placeholder: t('new_task.date'), name: 'task[date]', id: 'new_task_date'
+              %i.table.icon
+          .field
+            = label_tag :address, t('new_task.address')
+            .ui.left.labeled.icon.input
+              = text_field_tag :address, nil, placeholder: t('new_task.address'), name: 'task[address]'
+              %i.mail.icon
+        .field
+          .ui.icon.message
+            %i.large.info.icon
+            .content
+              %p Вы можете выбрать место на карте, либо указать координаты вручную.
+          .new_task_map{id: 'new_task_map'}
+        = button_tag t('new_task.submit'), class: 'ui blue submit button'
+  .column

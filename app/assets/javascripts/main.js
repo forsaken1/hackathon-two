@@ -1,5 +1,10 @@
 $(document).ready(function() {
   $('.ui.dropdown').dropdown();
+
+  $('#new_task_date').datetimepicker({
+    format:'d.m.Y H:i',
+    lang:'ru'
+  });
 });
 
 $('a.sign_out').click(function() {
