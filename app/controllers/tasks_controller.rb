@@ -8,7 +8,7 @@ private
 
 public
   def index
-    @tasks = Task.by_city_if(user_signed_in?, current_user).not_completed.includes(user: :city).all
+    @tasks = Task.not_completed.includes(user: :city).all
     rendering tasks: @tasks.as_json(include: { user: { include: :city, methods: [:avatar_url] } })
   end
 
