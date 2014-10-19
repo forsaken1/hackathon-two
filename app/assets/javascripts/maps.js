@@ -15,12 +15,12 @@ $(document).ready(function() {
     $.get(link, {}, function(data) {
       var myCollection = new ymaps.GeoObjectCollection();
       myMap = new ymaps.Map(wrapper_id, {
-        center: [54.83, 37.11],
-        zoom: 10,
+        center: [43.12, 131.89],
+        zoom: 12,
         controls: ['zoomControl', 'typeSelector',  'fullscreenControl']
       });
       if (data.result == 'ok') {
-        if ('tasks' in data) {
+        if ('tasks' in data && data.tasks.length > 0) {
           data.tasks.forEach(function(element, index) {
             var placemark = new ymaps.Placemark([element.lat, element.lng], {
               balloonContentHeader: element.about,
@@ -29,17 +29,17 @@ $(document).ready(function() {
             });
             myCollection.add(placemark);
           });
+          myMap.geoObjects.add( myCollection );
+          myMap.setBounds( myCollection.getBounds() );
         } else if ('task' in data) {
           var placemark = new ymaps.Placemark([data.task.lat, data.task.lng], {
             balloonContentHeader: data.task.about,
             balloonContentBody: 'Адрес: ' + data.task.address + '<br />Дата: ' + getTaskData(data.task)
           });
           myCollection.add( placemark );
-        }
-        myMap.geoObjects.add( myCollection );
-        myMap.setBounds( myCollection.getBounds() );
-        if ('task' in data) {
-          myMap.setZoom(14);
+          myMap.geoObjects.add( myCollection );
+          myMap.setBounds( myCollection.getBounds() );
+          myMap.setZoom(12);
         }
       }
     });

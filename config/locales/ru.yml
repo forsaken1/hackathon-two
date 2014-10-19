@@ -5,6 +5,7 @@ ru:
     sign_in: 'Войти'
     sign_out: 'Выйти'
     settings: 'Настройки'
+    add: 'Попросить'
 
   login:
     title: 'Вход'
