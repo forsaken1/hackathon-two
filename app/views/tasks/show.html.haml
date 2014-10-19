@@ -37,6 +37,11 @@
                 - else
                   %a{href: '/users/sign_in'} Войдите
                   и у Вас появится возможность помочь
+            .item
+              .ui.relaxed.horizontal.list
+                .item
+                  - @task.users.each do |user|
+                    %img.ui.avatar.image{ :src => user.avatar_url, :title => user.email }
     .map_wrapper{id: 'single_map_wrapper'}
   .column
   = hidden_field_tag :task_id, @task.id
