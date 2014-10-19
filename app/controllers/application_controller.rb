@@ -10,12 +10,14 @@ private
   def not_found_exception
     respond_to do |format|
       format.json { respond_404 }
+      format.html { render }
     end
   end
 
   def record_not_unique
     respond_to do |format|
       format.json { respond result: :record_not_unique }
+      format.html { render }
     end
   end
 
