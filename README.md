@@ -31,7 +31,7 @@
 
 ## Требования
 
-### Web-frontend (http://hackathon2.herokuapp.com/)
+### Web-frontend (http://volonter-dv.herokuapp.com/)
 
 * Регистрация и авторизация
 * Возможность просмотра списков с просьбами
