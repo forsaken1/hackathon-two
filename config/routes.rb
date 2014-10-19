@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get  'tasks/:id/edit',    to: 'tasks#edit'
   get  'tasks/:id/apply',   to: 'tasks#apply', as: :task_apply
   get  'tasks/:id/forget',  to: 'tasks#forget', as: :task_forget
-  post 'tasks/:id/destroy', to: 'tasks#destroy'
+  get  'tasks/:id/destroy', to: 'tasks#destroy', as: :task_destroy
 
   get  'user',              to: 'user#index'
   post 'user',              to: 'user#update'
