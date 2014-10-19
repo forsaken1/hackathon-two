@@ -6,6 +6,7 @@ ru:
     sign_out: 'Выйти'
     settings: 'Настройки'
     add: 'Попросить'
+    my_tasks: 'Мои просьбы'
 
   login:
     title: 'Вход'
@@ -62,6 +63,7 @@ ru:
     settings: 'Настройки'
     tasks: 'Просьбы'
     new_task: 'Новая просьба'
+    my_tasks: 'Мои просьбы'
 
   date:
     abbr_day_names:

@@ -1,0 +1,23 @@
+- content_for :title do
+  = t('menu.my_tasks')
+
+- content_for :breadcrumb do
+  .ui.eight.column.grid
+    .column
+    .twelve.wide.column
+      .ui.breadcrumb
+        %a.section{href: '/'}= t('pages.main')
+        %i.right.arrow.icon.divider
+        .active.section= t('pages.my_tasks')
+    .column
+
+.ui.eight.column.grid
+  .column
+  .ui.selection.list.twelve.wide.column
+    - @tasks.each do |task|
+      %a.item{ href: task_path(task) }
+        %img.ui.avatar.image{ :src => task.user.avatar_url }
+          .content
+            .header= task.user.title
+            = task.about
+  .column
