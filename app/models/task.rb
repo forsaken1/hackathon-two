@@ -15,6 +15,7 @@ class Task < ActiveRecord::Base
   validates :date, allow_blank: true, date: { after: Proc.new { Time.now }, message: 'не может быть раньше текущего момента' }
 
   def get_date
+    return 'Срочно' if self.date.nil?
     month = ['', 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 
       'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря']
     d = Time.zone.at(self.date)
