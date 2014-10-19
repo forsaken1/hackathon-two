@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get  'tasks/:id',         to: 'tasks#show', as: :task
   post 'tasks/:id',         to: 'tasks#update'
   get  'tasks/:id/edit',    to: 'tasks#edit'
-  get  'tasks/:id/apply',   to: 'tasks#apply'
-  get  'tasks/:id/forget',  to: 'tasks#forget'
+  get  'tasks/:id/apply',   to: 'tasks#apply', as: :task_apply
+  get  'tasks/:id/forget',  to: 'tasks#forget', as: :task_forget
   post 'tasks/:id/destroy', to: 'tasks#destroy'
 
   get  'user',              to: 'user#index'

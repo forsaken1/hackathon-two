@@ -62,6 +62,9 @@ $(document).ready(function() {
           });
           myMap.geoObjects.add( myCollection );
           myMap.setBounds( myCollection.getBounds() );
+          if (data.tasks.length == 1) {
+            myMap.setZoom(12);
+          }
         } else if ('task' in data) {
           var placemark = new ymaps.Placemark([data.task.lat, data.task.lng], {
             balloonContentHeader: data.task.about,

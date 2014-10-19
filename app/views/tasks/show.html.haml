@@ -29,7 +29,12 @@
                 = @task.get_date
             .item
               .content
-                = button_tag t('tasks.submit'), class: 'ui blue submit button'
+                - if @current_user
+                  %form{:method => 'GET', :action => @is_user_already_help ? task_forget_path(@task) : task_apply_path(@task)}
+                    = button_tag @is_user_already_help ? 'Отказаться' : 'Помочь', class: 'ui blue submit button'
+                - else
+                  %a{href: '/users/sign_in'} Войдите
+                  и у Вас появится возможность помочь
     .map_wrapper{id: 'single_map_wrapper'}
   .column
   = hidden_field_tag :task_id, @task.id

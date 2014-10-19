@@ -15,7 +15,7 @@
 .ui.eight.column.grid
   .column
   .twelve.wide.column
-    %form{:method => 'post', :multipart => true}
+    %form{:method => 'post', :action => '/tasks'}
       %h2= t('new_task.title')
       .ui.error.form.segment
         .field
