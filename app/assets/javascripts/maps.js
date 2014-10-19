@@ -12,6 +12,9 @@ $(document).ready(function() {
       link = link + '/' + $('#task_id').val();
       wrapper_id = $('#single_map_wrapper').attr('id');
     }
+    if ($('#map_wrapper').length) {
+      $('#map_wrapper').height( $(window).height() - ( $('.main_menu').height() + $('FOOTER').height() + 30 ) );
+    }
     $.get(link, {}, function(data) {
       var myCollection = new ymaps.GeoObjectCollection();
       myMap = new ymaps.Map(wrapper_id, {

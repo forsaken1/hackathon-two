@@ -8,12 +8,7 @@
   %body
     .wrapper
       = render partial:'layouts/main_menu'
-      .ui.eight.column.grid
-        .column
-        .twelve.wide.column
-          .ui.breadcrumb
-            = yield :breadcrumb
-        .column
+      = yield :breadcrumb
       = yield
       .footer-padding
   %footer
