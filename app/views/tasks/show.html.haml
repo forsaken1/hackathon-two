@@ -1,11 +1,16 @@
 - content_for :title do
   = t('menu.tasks')
 - content_for :breadcrumb do
-  %a.section{href: '/'}= t('pages.main')
-  %i.right.arrow.icon.divider
-  %a.section{href: '/tasks'}= t('pages.tasks')
-  %i.right.arrow.icon.divider
-  .active.section= @task.about
+  .ui.eight.column.grid
+    .column
+    .twelve.wide.column
+      .ui.breadcrumb
+        %a.section{href: '/'}= t('pages.main')
+        %i.right.arrow.icon.divider
+        %a.section{href: '/tasks'}= t('pages.tasks')
+        %i.right.arrow.icon.divider
+        .active.section= @task.about
+    .column
 
 .ui.eight.column.grid
   .column

@@ -1,9 +1,14 @@
 - content_for :title do
   = t('pages.settings')
 - content_for :breadcrumb do
-  %a.section{href: '/'}= t('pages.main')
-  %i.right.arrow.icon.divider
-  .active.section{href: '/user'}= t('pages.settings')
+  .ui.eight.column.grid
+    .column
+    .twelve.wide.column
+      .ui.breadcrumb
+        %a.section{href: '/'}= t('pages.main')
+        %i.right.arrow.icon.divider
+        .active.section{href: '/user'}= t('pages.settings')
+    .column
 
 .ui.eight.column.grid
   .column
