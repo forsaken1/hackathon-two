@@ -36,6 +36,15 @@ ru:
   tasks:
     submit: 'Помочь'
 
+  new_task:
+    title: 'Попросить помощи'
+    about: 'Описание'
+    address: 'Дополнительные контакты'
+    date: 'Дата'
+    lat: 'Широта'
+    lng: 'Долгота'
+    submit: 'Попросить помощи'
+
   forgot_password:
     title: 'Забыли пароль?'
     email: 'Элестронный адрес'
@@ -52,6 +61,7 @@ ru:
     register: 'Регистрация'
     settings: 'Настройки'
     tasks: 'Просьбы'
+    new_task: 'Новая просьба'
 
   date:
     abbr_day_names:
