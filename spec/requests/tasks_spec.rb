@@ -57,7 +57,7 @@ describe "API: tasks" do
   describe "POST /tasks/:id/destroy" do
     it "destroy task" do
       auth
-      _post "/tasks/1/destroy"
+      _get "/tasks/1/destroy"
       result_ok
       _get "/tasks"
       result_ok
@@ -67,13 +67,13 @@ describe "API: tasks" do
 
     it "try destroy strange task" do
       auth email: 'alexey2143@mail.ru', password: '12345678'
-      _post "/tasks/1/destroy"
+      _get "/tasks/1/destroy"
       result_404
     end
 
     it "try destroy completed task" do
       auth
-      _post "/tasks/3/destroy"
+      _get "/tasks/3/destroy"
       result_404
     end
   end
