@@ -22,8 +22,8 @@ public
   end
 
   def create
-    @task = Task.new task_params.merge(user: current_user)
-
+    @task = Task.new(task_params.merge(user_id: current_user.id))
+    
     if @task.save
       respond_to do |format|
         format.json { respond_ok }

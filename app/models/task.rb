@@ -18,4 +18,8 @@ class Task < ActiveRecord::Base
     d = Time.zone.at(self.date)
     d.strftime(d.year > Time.now.year ? "%e #{month[d.month]} %Y в %H:%M" : "%e #{month[d.month]} в %H:%M")
   end
+
+  def apply?(user)
+    UserTask.exists?(user_id: user.id, task_id: self.id)
+  end
 end
