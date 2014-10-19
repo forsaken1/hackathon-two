@@ -11,4 +11,11 @@ class Task < ActiveRecord::Base
   validates :lat, length: { maximum: 15 }
   validates :lng, length: { maximum: 15 }
   validates :date, date: { after: Proc.new { Time.now }, message: 'не может быть раньше текущего момента' }
+
+  def get_date
+    month = ['', 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 
+      'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря']
+    d = Time.zone.at(self.date)
+    d.strftime(d.year > Time.now.year ? "%e #{month[d.month]} %Y в %H:%M" : "%e #{month[d.month]} в %H:%M")
+  end
 end

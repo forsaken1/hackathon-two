@@ -21,7 +21,7 @@
                 = @task.about
             .item
               .content
-                = @task.date
+                = @task.get_date
             .item
               .content
                 = button_tag t('tasks.submit'), class: 'ui blue submit button'
