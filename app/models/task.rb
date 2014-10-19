@@ -10,8 +10,8 @@ class Task < ActiveRecord::Base
 
   validates :about, length: { minimum: 1, maximum: 255 }, presence: true
   validates :address, length: { minimum: 1, maximum: 255 }, allow_blank: true
-  validates :lat, length: { maximum: 15 }
-  validates :lng, length: { maximum: 15 }
+  validates :lat, length: { maximum: 30 }
+  validates :lng, length: { maximum: 30 }
   validates :date, allow_blank: true, date: { after: Proc.new { Time.now }, message: 'не может быть раньше текущего момента' }
 
   def get_date
