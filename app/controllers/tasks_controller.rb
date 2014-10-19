@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :create]
+  before_action :authenticate_user!, except: [:index, :show]
 
 private
   def task_params
@@ -13,8 +13,7 @@ public
   end
 
   def show
-    @task = Task.includes(user: :city).find params[:id]
-    @current_user = current_user
+    @task = Task.includes(:users, user: :city).find params[:id]
     rendering task: @task.as_json(include: { user: { include: :city, methods: [:avatar_url] } })
   end
 
