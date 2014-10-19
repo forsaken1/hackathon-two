@@ -31,9 +31,9 @@
               .content
                 - if user_signed_in?
                   - if @task.apply?(current_user)
-                    %a.ui.blue.submit.button{ href: task_forget_path(@task) } Помочь
+                    %a.ui.red.submit.button{ href: task_forget_path(@task) } Забыть
                   - else
-                    %a.ui.red.submit.button{ href: task_apply_path(@task) } Забыть
+                    %a.ui.blue.submit.button{ href: task_apply_path(@task) } Помочь
                 - else
                   %a{href: '/users/sign_in'} Войдите
                   и у Вас появится возможность помочь
