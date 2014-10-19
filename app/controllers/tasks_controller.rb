@@ -23,7 +23,7 @@ public
 
   def create
     @task = Task.new(task_params.merge(user_id: current_user.id))
-    
+
     if @task.save
       respond_to do |format|
         format.json { respond_ok }
@@ -70,13 +70,22 @@ public
     if @task
       @user_task = UserTask.where(user: current_user).where(task: @task).first
       if @user_task
-        respond result: :apply_already_exists
+        respond_to do |format|
+          format.json { respond result: :apply_already_exists }
+          format.html { redirect_to action: :index }
+        end
       else
         UserTask.create(user: current_user, task: @task)
-        respond_ok
+        respond_to do |format|
+          format.json { respond_ok }
+          format.html { redirect_to action: :index }
+        end
       end
     else
-      respond result: :fail_apply_task
+      respond_to do |format|
+        format.json { respond result: :fail_apply_task }
+        format.html { redirect_to action: :index }
+      end
     end
   end
 
@@ -84,9 +93,15 @@ public
     @user_task = UserTask.where(user: current_user).where(task: params[:id]).first
     if @user_task
       @user_task.destroy
-      respond_ok
+      respond_to do |format|
+        format.json { respond_ok }
+        format.html { redirect_to action: :index }
+      end
     else
-      respond result: :link_not_exists
+      respond_to do |format|
+        format.json { respond result: :link_not_exists }
+        format.html { redirect_to action: :index }
+      end
     end
   end
 end
