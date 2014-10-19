@@ -29,9 +29,11 @@
                 = @task.get_date
             .item
               .content
-                - if @current_user
-                  %form{:method => 'GET', :action => @is_user_already_help ? task_forget_path(@task) : task_apply_path(@task)}
-                    = button_tag @is_user_already_help ? 'Отказаться' : 'Помочь', class: 'ui blue submit button'
+                - if user_signed_in?
+                  - if @task.apply?(current_user)
+                    %a.ui.blue.submit.button{ href: task_forget_path(@task) } Помочь
+                  - else
+                    %a.ui.red.submit.button{ href: task_apply_path(@task) } Забыть
                 - else
                   %a{href: '/users/sign_in'} Войдите
                   и у Вас появится возможность помочь

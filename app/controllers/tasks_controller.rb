@@ -15,7 +15,6 @@ public
   def show
     @task = Task.includes(user: :city).find params[:id]
     @current_user = current_user
-    @is_user_already_help = UserTask.where(user: current_user).where(task: @task).first
     rendering task: @task.as_json(include: { user: { include: :city, methods: [:avatar_url] } })
   end
 
