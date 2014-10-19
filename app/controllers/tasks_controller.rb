@@ -61,7 +61,7 @@ public
     Task.by(current_user).not_completed.find(params[:id]).destroy
     respond_to do |format|
       format.json { respond_ok }
-      format.html { redirect_to tasks_path }
+      format.html { redirect_to user_tasks_path }
     end
   end
 
