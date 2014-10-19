@@ -5,6 +5,12 @@ $(document).ready(function() {
     format:'d.m.Y H:i',
     lang:'ru'
   });
+
+  $('.delete_my_task').click(function(e) {
+    if (confirm('Вы действительно хотите удалить эту просьбу?')) {
+      document.location.href = $(e.target).attr('dataURL');
+    }
+  });
 });
 
 $('a.sign_out').click(function() {

@@ -16,6 +16,7 @@
   .ui.selection.list.twelve.wide.column
     - @tasks.each do |task|
       %a.item{ href: task_path(task) }
+        .right.floated.tiny.teal.ui.button.delete_my_task{ :dataURL => task_destroy_path(task) } Удалить
         %img.ui.avatar.image{ :src => task.user.avatar_url }
           .content
             .header= task.user.title
